@@ -1,6 +1,6 @@
 # Army Height and Weight PDF Generator
 
-Automates the generation of Army height and weight assessment forms (DA 5500/5501) from Excel data, with support for AR 600-9 compliance tracking and ACFT exemptions.
+Automates the generation of Army height and weight assessment forms (DA 5500/5501) from Excel data, with support for AR 600-9 compliance tracking and AFT exemptions.
 
 ## Process Overview
 
@@ -44,7 +44,7 @@ Automates the generation of Army height and weight assessment forms (DA 5500/550
    - Creates individual PDFs (5500 for males, 5501 for females)
    - Fills forms with soldier data and measurements
    - Generates appropriate AR 600-9 compliance remarks
-   - Handles ACFT exemptions for qualifying soldiers
+   - Handles AFT exemptions for qualifying soldiers
 
 ### Step 6: Final Processing
 1. **Print generated PDFs**
@@ -99,7 +99,7 @@ The Excel file should contain soldier data starting from row 6 with the followin
 | D | Age | Soldier's age |
 | E | Height | Height measurement |
 | F | Weight | Weight measurement |
-| G | ACFT Pass | "Yes" for ACFT exemption |
+| G | AFT Pass | "Yes" for AFT exemption |
 | I | Height/Weight Status | "Pass" or "Needs Tape" |
 | J-L | Tape Measurements | First, Second, Third measurements |
 | M | Average | Average of tape measurements |
@@ -116,7 +116,7 @@ The Excel file should contain soldier data starting from row 6 with the followin
 
 - **Automatic form selection**: Uses DA 5500 for males, DA 5501 for females
 - **AR 600-9 compliance**: Generates appropriate remarks based on standards
-- **ACFT exemptions**: Handles soldiers who pass ACFT but fail tape test
+- **AFT exemptions**: Handles soldiers who pass AFT but fail tape test
 - **Error handling**: Validates files and handles missing data gracefully
 - **Batch processing**: Processes multiple soldiers from single Excel file
 
@@ -135,4 +135,4 @@ python generate_pdfs.py soldiers.xlsx DA5500_template.pdf DA5501_template.pdf ./
 The script automatically generates appropriate remarks based on:
 - Height/weight pass/fail status
 - Body fat percentage compliance
-- ACFT exemption criteria (540+ total score, 80+ per event)
+- AFT exemption criteria (540+ total score, 80+ per event)
