@@ -2,7 +2,66 @@
 
 Automates the generation of Army height and weight assessment forms (DA 5500/5501) from Excel data, with support for AR 600-9 compliance tracking and ACFT exemptions.
 
-## Requirements
+## Process Overview
+
+### Step 1: Setup
+1. **Download the complete package** containing:
+   - `generate_pdfs.py` (main script)
+   - DA 5500 PDF template (male soldiers)
+   - DA 5501 PDF template (female soldiers)
+   - Excel template with built-in calculations
+
+### Step 2: Conduct Height and Weight Assessment
+1. **Open the Excel template** and fill out soldier information
+2. **Enter basic data**: Name, rank, gender, age, height, weight
+3. **Excel automatically calculates**:
+   - Maximum allowable weight based on age/height lookup tables
+   - Pass/Fail status for height and weight standards
+   - Immediate feedback on whether soldier needs tape test
+
+### Step 3: Tape Test (if required)
+1. **If soldier needs taping**: Excel will indicate "Needs Tape"
+2. **Conduct tape measurements** and enter the 3 measurements from NCOs/Officers
+3. **Excel automatically calculates**:
+   - Average of the 3 measurements
+   - Body fat percentage using Army regulation formulas
+   - Maximum allowable body fat percentage from lookup tables
+   - Pass/Fail status for body fat standards
+
+### Step 4: Personnel Information
+1. **Set default personnel** at top of Excel:
+   - Row 2: Default "Prepared By" name, rank, initials
+   - Row 4: Default "Supervised By" name, rank
+2. **For soldiers requiring tape test**: Override defaults by entering specific personnel in columns R-U for that soldier's row
+
+### Step 5: Generate PDFs
+1. **Save the Excel file** after completing all entries
+2. **Run the script**:
+   ```bash
+   python generate_pdfs.py soldiers.xlsx DA5500_template.pdf DA5501_template.pdf ./output
+   ```
+3. **Script automatically**:
+   - Creates individual PDFs (5500 for males, 5501 for females)
+   - Fills forms with soldier data and measurements
+   - Generates appropriate AR 600-9 compliance remarks
+   - Handles ACFT exemptions for qualifying soldiers
+
+### Step 6: Final Processing
+1. **Print generated PDFs**
+2. **Obtain required signatures**
+3. **File completed forms** per unit procedures
+
+## Future Enhancements
+
+### Planned Features
+- **DTMS Integration**: Export data in format for bulk DTMS updates
+- **Name Matching**: Automated soldier name formatting to match DTMS requirements
+
+### Known Challenges
+- Soldier names must match DTMS database exactly for bulk updates
+- Name formatting inconsistencies may require manual verification
+
+## Technical Requirements
 
 - Python 3.6+
 - Required packages:
