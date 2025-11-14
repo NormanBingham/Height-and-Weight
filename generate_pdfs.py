@@ -107,8 +107,8 @@ def generate_pdfs(excel_file, pdf_5500, pdf_5501, output_dir, custom_date=None, 
             13: "BODY FAT PERCENTAGE",
             17: "PREPARED BY",
             18: "PREP_BY_RANK",
-            20: "APPROVED BY SUPERVISOR",
-            21: "APPR_BY_RANK",
+            19: "APPROVED BY SUPERVISOR",
+            20: "APPR_BY_RANK",
         }
 
         # Extract default values safely
